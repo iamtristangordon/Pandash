@@ -19,6 +19,7 @@ export class WeatherService {
 				   .catch(this.handleError);
 	}
 
+	//used to debug/troubleshoot
 	logWeather(res): Weather {
 		console.log(res);
 

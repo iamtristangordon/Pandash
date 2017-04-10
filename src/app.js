@@ -52,12 +52,26 @@ apiRoutes.get('/weather', function(req, res) {
 
 	var endpoint = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat +  '&lon=' + lon + '&units=' + units + '&appid=' + appid;
 
+	function getFormattedDate(body) {
+		date = new Date((body.dt) * 1000);
+
+		month = date.getMonth() + 1;
+
+		day = date.getDate();
+
+		newDate = month + '/' + day;
+
+		return newDate;
+	}
+
 	request(endpoint, function(err, response, body){
 		body = JSON.parse(body);
 
         var data = {
         	temp: Math.round(body.main.temp),
         	description: body.weather[0].description,
+        	icon: body.weather[0].icon,
+        	date: getFormattedDate(body),
         };
 
         console.log(data);
