@@ -50,16 +50,31 @@ apiRoutes.get('/weather', function(req, res) {
 
 	let appid = '71d6193f508c6d5107a3f3f92e464c98';;
 
-	var endpoint = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat +  '&lon=' + lon + '&units=' + units + '&appid=' + appid;
+	let endpoint = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat +  '&lon=' + lon + '&units=' + units + '&appid=' + appid;
+
+	let months = [
+		'January',
+		'February',
+		'March',
+		'April',
+		'May', 
+		'June',
+		'July',
+		'August',
+		'September',
+		'October', 
+		'November', 
+		'December',
+	];
 
 	function getFormattedDate(body) {
 		date = new Date((body.dt) * 1000);
 
-		month = date.getMonth() + 1;
+		month = months[date.getMonth()];
 
 		day = date.getDate();
 
-		newDate = month + '/' + day;
+		newDate = month + ' ' + day;
 
 		return newDate;
 	}

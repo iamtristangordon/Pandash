@@ -33,9 +33,8 @@
 		<md-grid-list cols="12" rowHeight="8:6" gutterSize="20px">
 			<md-grid-tile colspan="3" rowspan="5">
 				<div class="dash-column weather">
-					<h3>{{weather?.date}}</h3>
-					<h1>{{weather?.temp}}&deg;F</h1><br/>
-					<h3>{{weather?.description}}</h3>
+					<div class="temp"><h1>{{weather?.temp}}&deg;F</h1></div>
+					<div class="description"><h3>{{weather?.date}} - {{weather?.description}}</h3></div>
 				</div>
 			</md-grid-tile>
 			<md-grid-tile colspan="6" rowspan="5">
