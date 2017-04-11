@@ -48,7 +48,7 @@ apiRoutes.get('/weather', function(req, res) {
 
 	let units = 'imperial';
 
-	let appid = '71d6193f508c6d5107a3f3f92e464c98';;
+	let appid = '71d6193f508c6d5107a3f3f92e464c98';
 
 	let endpoint = 'http://api.openweathermap.org/data/2.5/weather?lat=' + lat +  '&lon=' + lon + '&units=' + units + '&appid=' + appid;
 
