@@ -42,6 +42,7 @@ var getCity = function (lat, lon) {
 }
 
 apiRoutes.get('/weather', function(req, res) {
+	//TODO grab lat and lon values from request parameters
 	var lat = '36.117237';
 
 	let lon = '-86.628691';
