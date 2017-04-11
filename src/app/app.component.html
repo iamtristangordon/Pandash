@@ -33,8 +33,18 @@
 		<md-grid-list cols="12" rowHeight="8:6" gutterSize="20px">
 			<md-grid-tile colspan="3" rowspan="5">
 				<div class="dash-column weather">
-					<div class="temp"><h1>{{weather?.temp}}&deg;F</h1></div>
-					<div class="description"><h3>{{weather?.date}} - {{weather?.description}}</h3></div>
+					<div class="temp">
+						<div class="text_cell">
+							<img *ngIf="weather?.icon" src="src/img/{{weather?.icon}}.png"/>
+							<p>{{weather?.description}}</p>
+							<h1>{{weather?.temp}}&deg;F</h1>
+						</div>
+					</div>
+					<div class="date">
+						<div class="text_cell">
+							<h3>{{weather?.date}}</h3>
+						</div>
+					</div>
 				</div>
 			</md-grid-tile>
 			<md-grid-tile colspan="6" rowspan="5">
