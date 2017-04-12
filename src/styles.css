@@ -16,6 +16,10 @@ body {
 	color: white;
 }
 
+.red {
+  color: red;
+}
+
 .blur_bg {
 	height: 100%;
 	max-width: 100%;
