@@ -106,7 +106,7 @@ md-icon:hover {
 
 md-grid-tile {
 	background: rgba(120,120,120, .5);
-	border-radius: 4px;
+	border-radius: 5px;
 }
 
 .dash-column {
@@ -137,4 +137,8 @@ md-grid-tile {
 	display: table-cell;
 	width: 100%;
 	vertical-align: middle;
+}
+
+.text_cell img {
+	max-width: 45px;
 }

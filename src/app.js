@@ -37,16 +37,16 @@ morgan.token('err', function getErr (req) {
   return req.res.error;
 });
 
-var logDirectory = path.join(__dirname, 'log')
+var logDirectory = path.join(__dirname, 'log');
 
 // ensure log directory exists
-fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory)
+fs.existsSync(logDirectory) || fs.mkdirSync(logDirectory);
 
 // create a rotating write stream
 var accessLogStream = rfs(getFileName(), {
   interval: '1d', // rotate daily
   path: logDirectory
-})
+});
 
 // creates console log while server is active
 app.use(morgan(':err :method :url :response-time :date[clf]', {stream: accessLogStream}));
@@ -158,4 +158,4 @@ app.use(function(err, req, res, next) {
 
 // Start the server
 app.listen(port);
-console.log('You got it, Tristan. This server is for doodtristxn. Found at port:' + port);
+console.log('You got it, Tristan. This server is for Pandash. Found at port:' + port);
