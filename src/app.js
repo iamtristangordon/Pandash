@@ -162,6 +162,7 @@ apiRoutes.get('/weather', function(req, res, next) {
 						description: body.list[i].weather[0].description,
 						icon: body.list[i].weather[0].icon,
 						date: getFormattedDate(body.list[i], true),
+						location: body.city.name,
 					};
 
 					weatherReports.push(weatherReport);
@@ -192,6 +193,7 @@ apiRoutes.get('/weather', function(req, res, next) {
 					description: body.weather[0].description,
 					icon: body.weather[0].icon,
 					date: getFormattedDate(body),
+					location: body.name,
 				};
 
 				console.log(weatherReport);

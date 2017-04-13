@@ -7,4 +7,5 @@ export class Weather {
 	description: string;
 	icon: string;
 	date: string;
+	location: string;
 }
