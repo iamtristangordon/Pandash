@@ -17,7 +17,7 @@ export class WeatherService {
 		const url = `${this.weatherUrl}?lat=${settings.lat}&lon=${settings.lon}&units=${settings.units}`;
 		return this.http.get(url)
 				   .toPromise()
-				   .then(response => response.json().data as Weather)
+				   .then(response => this.logWeather(response.json().weatherReport) as Weather)
 				   .catch(this.handleError);
 	}
 

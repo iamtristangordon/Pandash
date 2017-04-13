@@ -38,7 +38,7 @@
 							<div *ngIf="weather">
 								<img src="src/img/{{weather?.icon}}.png"/>
 								<p>{{weather?.description}}</p>
-								<h1>{{weather?.temp}}&deg;</h1>
+								<h1>{{weather?.temp?.now}}&deg;</h1>
 								<p>{{weather?.date}}</p>
 							</div>
 							<p *ngIf="weatherError">{{weatherError}}</p>

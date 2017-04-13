@@ -74,7 +74,10 @@ var getCity = function (lat, lon) {
 
 apiRoutes.get('/weather', function(req, res, next) {
 	//TODO grab lat and lon values from request parameters
-	let multi = req.query.multi || false;
+	let multi = req.query.multi;
+
+	//if multi has a value, convert it to a boolean value
+	multi ? multi = multi.toLowerCase() == 'true': '';
 
 	var lat = req.query.lat || '46.117237';
 
@@ -107,41 +110,100 @@ apiRoutes.get('/weather', function(req, res, next) {
 		'December',
 	];
 
-	function getFormattedDate(body) {
+	let days = [
+		'Sunday',
+		'Monday',
+		'Tuesday',
+		'Wednesday',
+		'Thursday',
+		'Friday',
+		'Saturday',
+	];
+
+	function getFormattedDate(body, getWeekday = false) {
 		date = new Date((body.dt) * 1000);
 
-		month = months[date.getMonth()];
+		if (getWeekday) {
+			day = date.getDay();
 
-		day = date.getDate();
+			formattedDate = days[day];
 
-		newDate = month + ' ' + day;
+			return formattedDate;
+		}
 
-		return newDate;
+		else {
+			month = months[date.getMonth()];
+
+			day = date.getDate();
+
+			formattedDate = month + ' ' + day;
+
+			return formattedDate;
+		}
 	}
 
-	request(endpoint, function(err, response, body){
-		body = JSON.parse(body);
+	if (multi === true) {
+		request(endpointMulti, function(err, response, body){
+			body = JSON.parse(body);
 
-		console.log(body);
+			//console.log(body);
 
-		if (body.cod === 200) {
+			if (body && parseInt(body.cod) === 200) {
 
-	        var data = {
-	        	temp: Math.round(body.main.temp),
-	        	description: body.weather[0].description,
-	        	icon: body.weather[0].icon,
-	        	date: getFormattedDate(body),
-	        };
+				weatherReports = [];
 
-	        console.log(data);
+				for (i = 0; i < (body.list).length; i++) {
+					var weatherReport = {
+						temp: {
+							min: Math.round(body.list[i].temp.min),
+							max: Math.round(body.list[i].temp.max),
+							now: 0,
+						},
+						description: body.list[i].weather[0].description,
+						icon: body.list[i].weather[0].icon,
+						date: getFormattedDate(body.list[i], true),
+					};
 
-	        res.send({data});
-    	}
+					weatherReports.push(weatherReport);
+				}
 
-    	else {
-    		next(new Error(body.message))
-    	}
-    });
+				weatherReports.shift();
+
+				console.log(weatherReports);
+			}
+
+			else {
+				next(new Error(body.message))
+			}
+		});
+	} 
+	else {
+		request(endpoint, function(err, response, body){
+			body = JSON.parse(body);
+
+			if (body && parseInt(body.cod) === 200) {
+
+				var weatherReport = {
+					temp: {
+						min: Math.round(body.main.temp_min),
+						max: Math.round(body.main.temp_max),
+						now: Math.round(body.main.temp)
+					},
+					description: body.weather[0].description,
+					icon: body.weather[0].icon,
+					date: getFormattedDate(body),
+				};
+
+				console.log(weatherReport);
+
+				res.send({weatherReport});
+			}
+
+			else {
+				next(new Error(body.message))
+			}
+		});
+	}
   
 });
 
