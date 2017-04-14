@@ -13,11 +13,18 @@ export class DashboardComponent implements OnInit {
 
   	weatherError;
 
-  	weatherSettings = {
-  		lat: '36.16589',
-  		lon: '-86.784439',
-  		units: 'imperial'
+  	user = {
+		weatherSettings: {
+  			lat: '36.16589',
+  			lon: '-86.784439',
+  			units: 'imperial'
+		},
+		info: {
+			name: 'Tristan',
+		}
   	};
+
+	greeting = "Hello, " + this.user.info.name;
 
 	constructor(private weatherService: WeatherService) { }
 
@@ -26,13 +33,11 @@ export class DashboardComponent implements OnInit {
   	}
 
   	getWeather(): void {
-		this.weatherService.getWeatherReport(this.weatherSettings)
+		this.weatherService.getWeatherReport(this.user.weatherSettings)
 			.then(weather => { 
 				this.weather = weather;
-				console.log(this);
 			})
 			.catch((res) => {
-				console.log(res);
 				this.weatherError = 'There was an error retrieving weather data.'; 
 			});
 	}

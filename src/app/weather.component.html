@@ -1,8 +1,16 @@
 <section class="weather">
   <div class="row">
-    <p>
-      weather works!
-    </p>
-    <a routerLink="/dashboard">Back</a>
+    <a md-raised-button routerLink="/" color="primary">Back</a>
+    <div *ngFor="let weather of weatherArray" class="weather-card">
+      <div style="background: rgba(120,120,120, .5); border-radius: 5px; text-align: center; margin: 27px 0; padding: 27px 0" *ngIf="weather">
+        <img src="src/img/{{weather?.icon}}.png"/>
+        <p>{{weather?.description}}</p>
+        <h1>{{weather?.temp?.max + ' '}}&deg;{{weather?.temp?.min}}&deg;</h1>
+				<h1></h1>
+        <p>{{weather?.date}}</p>
+        <p>{{weather?.location}}</p>
+      </div>
+    </div>
+    <p *ngIf="weatherError">{{weatherError}}</p>
   </div>
 </section>

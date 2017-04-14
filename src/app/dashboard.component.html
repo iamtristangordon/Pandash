@@ -1,3 +1,12 @@
+<div class="hero">
+	<div class="banner row">
+		<div class="row-2">	
+			<div class="greeting">
+				<h1>{{greeting}}</h1>
+			</div>
+		</div>	
+	</div>
+</div>
 <section class="dash">
 	<div class="row">
 		<md-grid-list cols="12" rowHeight="8:6" gutterSize="20px">
@@ -10,9 +19,9 @@
 								<p>{{weather?.description}}</p>
 								<h1>{{weather?.temp?.now}}&deg;</h1>
 								<p>{{weather?.date}}</p>
-								<a routerLink="/weather">-></a>
 							</div>
 							<p *ngIf="weatherError">{{weatherError}}</p>
+							<a md-raised-button routerLink="/weather" color="primary">Open</a>
 						</div>
 					</div>
 				</div>

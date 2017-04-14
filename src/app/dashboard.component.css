@@ -1,9 +1,52 @@
 /*dash styles*/
+.hero {
+	width: 100%;
+	max-height: 400px;
+	height: 100%;
+	background: linear-gradient(
+      rgba(100,255,218, 1), 
+      rgba(218,100,255, 0.4)
+    ),
+    url(../longmountainsky.jpg);
+	-webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+	display: inline-block;
+	padding:1.2% 0;
+}
+
+.row-1 {
+	margin-bottom: 150px;
+}
+
+.row-2 {
+    height: 100%;
+}
+
+.banner {
+	height: 100%;
+}
+
+.greeting {
+	text-align: center;
+    height: 100%;
+    width: 100%;
+    display: table;
+}
+
+.greeting h1 {
+	text-transform: uppercase;
+    display: table-cell;
+    width: 100%;
+    vertical-align: middle;
+}
 
 md-grid-tile {
 	background: rgba(120,120,120, .5);
 	border-radius: 5px;
 }
+
 .dash {
 	height: auto;
 	padding: 5% 0;
@@ -42,3 +85,7 @@ md-grid-tile {
 .text_cell img {
 	max-width: 45px;
 }
+
+.mat-button-wrapper {
+    color: rgba(255,255,255, .7);
+}	

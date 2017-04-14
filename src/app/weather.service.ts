@@ -22,15 +22,15 @@ export class WeatherService {
 	}
 
 	getWeatherReports(settings): Promise<Weather[]> {
-		const url = `${this.weatherUrl}?lat=${settings.lat}&lon=${settings.lon}&units=${settings.units}multi=true`;
+		const url = `${this.weatherUrl}?lat=${settings.lat}&lon=${settings.lon}&units=${settings.units}&multi=true`;
 		return this.http.get(url)
 				   .toPromise()
-				   .then(response => response.json().weatherReport as Weather[])
+				   .then(response => this.logWeather(response.json().weatherReports) as Weather[])
 				   .catch(this.handleError);
 	}
 
 	//used to debug/troubleshoot
-	logWeather(res): Weather {
+	logWeather(res): Weather[] {
 		console.log(res);
 
 		return res;

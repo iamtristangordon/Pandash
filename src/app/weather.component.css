@@ -2,3 +2,7 @@
 	height: auto;
 	padding: 5% 0;
 }
+
+.mat-button-wrapper {
+    color: rgba(255,255,255, .7);
+}

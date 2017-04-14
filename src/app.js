@@ -171,6 +171,8 @@ apiRoutes.get('/weather', function(req, res, next) {
 				weatherReports.shift();
 
 				console.log(weatherReports);
+
+				res.send({weatherReports});
 			}
 
 			else {
