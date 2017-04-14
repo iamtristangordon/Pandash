@@ -1,3 +1,32 @@
-<p>
-  app works!
-</p>
+<header>
+	<div class="banner row">
+		<div class="row-1">
+			<div class="title">
+				<h2>
+		  			{{title}}
+				</h2>
+			</div>
+			<div class="usr-ctrl">
+				<div class="usr-ctrl_cont notifications">
+					<md-icon>notifications</md-icon>
+				</div>
+				<div class="usr-ctrl_cont">
+					<div class="usr-ctrl_img">
+						
+					</div>
+					<div class="usr-ctrl_arrow">
+						<md-icon>arrow_drop_down</md-icon>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="row-2">	
+			<div class="greeting">
+				<h1>Welcome, Tristan.</h1>
+			</div>
+		</div>	
+	</div>
+</header>
+<div class="component-container">
+  <router-outlet></router-outlet>
+</div>

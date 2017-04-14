@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Weather } from './weather';
+import { Weather } 		  from './weather';
 import { WeatherService } from './weather.service';
 
 @Component({
@@ -9,8 +9,6 @@ import { WeatherService } from './weather.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-  	title = 'Pandash';
-
   	weather: Weather;
 
   	weatherError;

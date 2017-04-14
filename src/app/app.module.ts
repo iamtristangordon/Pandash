@@ -7,6 +7,7 @@ import { MaterialModule } from '@angular/material';
 import { AppComponent } from './app.component';
 import { WeatherService} from './weather.service';
 import { DashboardComponent } from './dashboard.component';
+import { WeatherComponent } from './weather.component';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -15,7 +16,8 @@ import 'hammerjs';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent
+    DashboardComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
