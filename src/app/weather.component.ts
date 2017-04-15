@@ -29,6 +29,8 @@ export class WeatherComponent implements OnInit {
 
   ngOnInit() {
     this.getWeatherArray();
+
+    this.getWeather();
   }
 
   getWeatherArray(): void {
@@ -42,5 +44,15 @@ export class WeatherComponent implements OnInit {
         this.weatherError = 'There was an error retrieving weather data.';
       })
   }
+
+  getWeather(): void {
+		this.weatherService.getWeatherReport(this.user.weatherSettings)
+			.then(weather => { 
+				this.weather = weather;
+			})
+			.catch((res) => {
+				this.weatherError = 'There was an error retrieving weather data.'; 
+			});
+	}
 
 }
