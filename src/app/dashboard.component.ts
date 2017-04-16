@@ -24,7 +24,7 @@ export class DashboardComponent implements OnInit {
 		}
   	};
 
-	greeting = "Hello, " + this.user.info.name;
+	greeting = "Hello, " + this.user.info.name + ".";
 
 	constructor(private weatherService: WeatherService) { }
 

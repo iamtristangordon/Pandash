@@ -5,7 +5,7 @@
 				<div *ngIf="weather" class="current">
           <p>{{weather?.description}}</p>
           <h1>{{weather?.temp?.now}}&deg;</h1>
-          <p>{{weather?.date}}</p>
+          <p><span class="pill">{{weather?.temp?.max}}&deg;{{' ' + weather?.temp?.min}}&deg;</span>{{' / ' + weather?.date}}</p>
         </div>
 			</div>
 		</div>	
@@ -21,7 +21,7 @@
           <p>{{weatherReport?.description}}</p>
           <h1>{{weatherReport?.temp?.max}}&deg;{{' ' + weatherReport?.temp?.min}}&deg;</h1>
           <h1></h1>
-          <p>{{weatherReport?.date}}</p>
+          <p class="pill">{{weatherReport?.date}}</p>
           <p>{{weatherReport?.location}}</p>
         </div>
       </div>

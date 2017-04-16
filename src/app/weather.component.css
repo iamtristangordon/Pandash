@@ -61,3 +61,11 @@ img {
 card-container {
     overflow: hidden;
 }
+
+.pill {
+    background: rgba(0,0,0, 0.3);
+    display: inline-block;
+    margin: 0 auto;
+    padding: 5px 12px;
+    border-radius: 14px;
+}
