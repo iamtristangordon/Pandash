@@ -1,0 +1,38 @@
+<div class="hero">
+	<div class="banner row">
+		<div class="row-2">	
+			<div class="report">
+				<div *ngIf="weather" class="current">
+          <h2>{{weather?.description}}</h2>
+          <h1>{{weather?.temp?.now}}&deg;&nbsp;<img src="src/img/{{weather?.icon}}.svg"/></h1>
+          <p><span class="pill">{{weather?.temp?.max}}&deg;{{' ' + weather?.temp?.min}}&deg;</span>{{' / ' + weather?.date}}</p>
+        </div>
+			</div>
+		</div>	
+	</div>
+</div>
+<section class="weather">
+  <div class="row">
+    <div>
+        <a md-raised-button routerLink="/" color="primary"><md-icon>keyboard_arrow_left</md-icon>Back</a>
+    </div>
+    <div>
+      <md-input-container class="example-full-width">
+        <input mdInput placeholder="Enter Your City">
+      </md-input-container>
+    </div>
+    <div class="card-container">
+      <div *ngFor="let weatherReport of weatherArray" class="weather-card">
+        <div style="background: rgba(120,120,120, .5); border-radius: 5px; text-align: center; margin: 27px 0; padding: 27px 0" *ngIf="weatherReport">
+          <img src="src/img/{{weatherReport?.icon}}.svg"/>
+          <p>{{weatherReport?.description}}</p>
+          <h1>{{weatherReport?.temp?.max}}&deg;{{' ' + weatherReport?.temp?.min}}&deg;</h1>
+          <h1></h1>
+          <p class="pill">{{weatherReport?.date}}</p>
+          <p>{{weatherReport?.location}}</p>
+        </div>
+      </div>
+    </div>
+    <p *ngIf="weatherError">{{weatherError}}</p>
+  </div>
+</section>

@@ -6,18 +6,25 @@ import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { WeatherService} from './weather.service';
+import { DashboardComponent } from './dashboard.component';
+import { WeatherComponent } from './weather.component';
+
+import { AppRoutingModule } from './app-routing.module';
 
 import 'hammerjs';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    DashboardComponent,
+    WeatherComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     HttpModule,
-    MaterialModule
+    MaterialModule,
+    AppRoutingModule
   ],
   providers: [ WeatherService ],
   bootstrap: [AppComponent]

@@ -1,54 +1,21 @@
 <header>
-	<div class="banner row">
-		<div class="row-1">
-			<div class="title">
-				<h2>
-		  			{{title}}
-				</h2>
-			</div>
-			<div class="usr-ctrl">
-				<div class="usr-ctrl_cont notifications">
-					<md-icon>notifications</md-icon>
-				</div>
-				<div class="usr-ctrl_cont">
-					<div class="usr-ctrl_img">
-						
-					</div>
-					<div class="usr-ctrl_arrow">
-						<md-icon>arrow_drop_down</md-icon>
-					</div>
-				</div>
-			</div>
+	<div class="row">
+		<div class="title">
+			<h2>
+				{{title}}
+			</h2>
 		</div>
-		<div class="row-2">	
-			<div class="greeting">
-				<h1>Welcome, Tristan.</h1>
-			</div>
-		</div>	
+		<div class="usr-ctrl">
+				<div class="usr-ctrl_img">
+					<div class="img"></div>
+				</div>
+				<md-icon>notifications</md-icon>
+				<!--<div class="usr-ctrl_arrow">
+					<md-icon>arrow_drop_down</md-icon>
+				</div>-->
+		</div>
 	</div>
 </header>
-<section class="dash">
-	<div class="row">
-		<md-grid-list cols="12" rowHeight="8:6" gutterSize="20px">
-			<md-grid-tile colspan="3" rowspan="5">
-				<div class="dash-column weather">
-					<h3>{{weather?.date}}</h3>
-					<h1>{{weather?.temp}}&deg;F</h1><br/>
-					<h3>{{weather?.description}}</h3>
-				</div>
-			</md-grid-tile>
-			<md-grid-tile colspan="6" rowspan="5">
-				<h1>Todo</h1>
-			</md-grid-tile>
-			<md-grid-tile colspan="3" rowspan="5">
-				<h1>Progress Tracker</h1>
-			</md-grid-tile>
-			<md-grid-tile colspan="6" rowspan="5">
-				<h1>Calendar</h1>
-			</md-grid-tile>
-			<md-grid-tile colspan="6" rowspan="5">
-				<h1>Quicklinks</h1>
-			</md-grid-tile>
-		</md-grid-list>
-	</div>
-</section>
+<div class="component-container">
+  <router-outlet></router-outlet>
+</div>
