@@ -144,11 +144,15 @@ apiRoutes.get('/weather', function(req, res, next) {
 
 	if (multi === true) {
 		request(endpointMulti, function(err, response, body){
-			body = JSON.parse(body);
+			try {
+				body = JSON.parse(body);				
+			} catch (e) {
+				return console.error(e);
+			}
 
 			//console.log(body);
 
-			if (body && parseInt(body.cod) === 200) {
+			if (parseInt(body.cod) === 200) {
 
 				weatherReports = [];
 
@@ -182,9 +186,13 @@ apiRoutes.get('/weather', function(req, res, next) {
 	} 
 	else {
 		request(endpoint, function(err, response, body){
-			body = JSON.parse(body);
+			try {
+				body = JSON.parse(body);				
+			} catch (e) {
+				return console.error(e);
+			}
 
-			if (body && parseInt(body.cod) === 200) {
+			if (parseInt(body.cod) === 200) {
 
 				var weatherReport = {
 					temp: {
