@@ -21,7 +21,7 @@
 								<p>{{weather?.date}}</p>
 							</div>
 							<p *ngIf="weatherError">{{weatherError}}</p>
-							<a md-raised-button routerLink="/weather" color="primary">Open</a>
+							<a md-raised-button routerLink="/weather" color="primary">Open<md-icon>keyboard_arrow_right</md-icon></a>
 						</div>
 					</div>
 				</div>
@@ -30,13 +30,13 @@
 				<h1>Todo</h1>
 			</md-grid-tile>
 			<md-grid-tile colspan="3" rowspan="5">
-				<h1>Progress Tracker</h1>
+				<h1>Task Tracker</h1>
 			</md-grid-tile>
 			<md-grid-tile colspan="6" rowspan="5">
 				<h1>Calendar</h1>
 			</md-grid-tile>
 			<md-grid-tile colspan="6" rowspan="5">
-				<h1>Quicklinks</h1>
+				<h1>Quick Links</h1>
 			</md-grid-tile>
 		</md-grid-list>
 	</div>

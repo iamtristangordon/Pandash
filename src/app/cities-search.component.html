@@ -1,0 +1,10 @@
+<div class="weather-search">
+    <md-input-container class="example-full-width">
+        <input (keyup)="search(cityName)" mdInput placeholder="Enter Your City" [(ngModel)]='cityName' />
+    </md-input-container>
+    <div *ngIf="showCities" class="results">
+        <div *ngFor="let city of cities | async" (click)="selectCity(city.name); showCities = false; cityName = city.name;">
+            {{city.name}}
+        </div>
+    </div>
+</div>

@@ -5,9 +5,12 @@ import { HttpModule }     from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { WeatherService} from './weather.service';
 import { DashboardComponent } from './dashboard.component';
 import { WeatherComponent } from './weather.component';
+import { CitiesSearchComponent } from './cities-search.component';
+
+import { WeatherService} from './weather.service';
+import { CitySelectService } from './city-select.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -17,7 +20,8 @@ import 'hammerjs';
   declarations: [
     AppComponent,
     DashboardComponent,
-    WeatherComponent
+    WeatherComponent,
+    CitiesSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +30,10 @@ import 'hammerjs';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [ WeatherService ],
+  providers: [
+    WeatherService,
+    CitySelectService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,40 @@
+md-input-container {
+    margin: 0 auto;
+}
+
+md-input-container input {
+    width: 270px;
+    font-size: 30px;
+}
+
+.weather-search {
+    position: relative;
+    width: 270px
+}
+
+.weather-search .results {
+    width: 100%;
+    position: absolute;
+    z-index: 1;
+    top:100%;
+    background: rgba(0,0,0, .6);
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+
+.results > div {
+    padding: 10px 20px;
+    border-bottom: white solid 1px;
+    transition: linear .1s;
+}
+
+.results > div:hover {
+    background: rgba(255,255,255, .4);
+    cursor: pointer;
+}
+
+.results > div:last-of-type {
+    border-bottom: none;
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+}

@@ -1,6 +1,5 @@
 import { Injectable } 							   from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
-import { Observable } 							   from 'rxjs/Rx';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -25,7 +24,15 @@ export class WeatherService {
 		const url = `${this.weatherUrl}?lat=${settings.lat}&lon=${settings.lon}&units=${settings.units}&count=9&multi=true`;
 		return this.http.get(url)
 				   .toPromise()
-				   .then(response => this.logWeather(response.json().weatherReports) as Weather[])
+				   .then(response => response.json().weatherReports as Weather[])
+				   .catch(this.handleError);
+	}
+
+	getLatLon(city): Promise<any> {
+		const url = `/api/coordinates?city=${city}`;
+		return this.http.get(url)
+				   .toPromise()
+				   .then(response => response.json().coordinates)
 				   .catch(this.handleError);
 	}
 

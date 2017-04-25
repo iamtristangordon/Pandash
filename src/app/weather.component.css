@@ -74,12 +74,3 @@ card-container {
     margin-bottom: 5%;
 }
 
-md-input-container {
-    margin: 0 auto;
-}
-
-md-input-container input {
-    width: 200px;
-    font-size: 30px;
-}
-
