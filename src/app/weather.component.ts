@@ -3,6 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { Weather }        from './weather';
 import { WeatherService } from './weather.service';
 
+import { CitySelectService } from './city-select.service';
+
+import { Subscription } from 'rxjs/Subscription';
+
 @Component({
   selector: 'app-weather',
   templateUrl: './weather.component.html',
@@ -13,7 +17,11 @@ export class WeatherComponent implements OnInit {
 
   weather: Weather;
 
-  weatherError;
+  subscription: Subscription;
+
+  weatherError: string;
+
+  weatherArrayError: string;
 
   user = {
 		weatherSettings: {
@@ -25,23 +33,30 @@ export class WeatherComponent implements OnInit {
 			name: 'Tristan',
 		}
   };
-  constructor(private weatherService: WeatherService) { }
+  constructor(
+    private weatherService: WeatherService,
+    private citySelectService: CitySelectService) { }
 
   ngOnInit() {
     this.getWeatherArray();
 
     this.getWeather();
+
+    this.subscription = this.citySelectService.notification.subscribe((res) => {
+      if (res.hasOwnProperty('city')) {
+        this.getLatLon(res.city);
+      }
+    });
   }
 
   getWeatherArray(): void {
     this.weatherService.getWeatherReports(this.user.weatherSettings)
       .then(weather => {
         this.weatherArray = weather;
-        console.log(this);
       })
       .catch(res => {
         console.log(res);
-        this.weatherError = 'There was an error retrieving weather data.';
+        this.weatherArrayError = 'There was an error retrieving weather data.';
       })
   }
 
@@ -54,5 +69,21 @@ export class WeatherComponent implements OnInit {
 				this.weatherError = 'There was an error retrieving weather data.'; 
 			});
 	}
+
+  getLatLon(city): void {
+    this.weatherService.getLatLon(city)
+      .then(latLon => {
+        this.user.weatherSettings.lon = latLon.lon;
+        this.user.weatherSettings.lat = latLon.lat;
+        this.getWeather();
+        this.getWeatherArray();
+      })
+      .catch(res => {
+        let latLonError = 'There was an error changing cities.';
+
+        this.weatherError = latLonError;
+        this.weatherArrayError = latLonError;
+      });
+  }
 
 }

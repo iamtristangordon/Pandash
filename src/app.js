@@ -56,6 +56,24 @@ app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, 'index.html'));
 });
 
+apiRoutes.get('/coordinates', function(req, res, next) {
+	let city = req.query.city || 'Nashville, TN';
+
+	let googleApiKey = 'AIzaSyDAgDIVzKJ8ubNrJ_LQi4L2teD5TG3FojA';
+
+	let endpoint = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=' + googleApiKey;
+	request(endpoint, function(err, response, body){
+		body = JSON.parse(body);
+
+		let coordinates = {
+			lat: body.results[0].geometry.location.lat,
+			lon: body.results[0].geometry.location.lng
+		};
+
+		res.send({coordinates});
+	});
+});
+
 apiRoutes.get('/cities', function(req, res, next) {
 	let input = req.query.input || 'Nashville'; 
 
