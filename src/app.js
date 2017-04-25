@@ -2,7 +2,7 @@ var express      = require('express');
 var app          = express();
 var bodyParser   = require('body-parser');
 var fs 			 = require('fs');
-var rfs = require('rotating-file-stream');
+var rfs 		 = require('rotating-file-stream');
 var morgan       = require('morgan');
 var port         = process.env.PORT || 8080;
 var request      = require('request');
@@ -56,21 +56,36 @@ app.get('/', function(req, res) {
   res.sendfile(path.join(__dirname, 'index.html'));
 });
 
-var googleApiKey = 'AIzaSyCZ64UEHphVr_ZkbMEwJl69xAkSBhPsjqQ';
+apiRoutes.get('/cities', function(req, res, next) {
+	let input = req.query.input || 'Nashville'; 
 
-var getCity = function (lat, lon) {
-	endpoint = 'https://maps.googleapis.com/maps/api/geocode/json?latlng=' + lat + ',' + lon +  '&key=' + googleApiKey;
+	let googleApiKey = 'AIzaSyDAgDIVzKJ8ubNrJ_LQi4L2teD5TG3FojA';
+
+	let	endpoint = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+ input + '&types=(cities)&key=' + googleApiKey;
+
+	console.log(endpoint);
+
+	let cityResults = [];
 
 	request(endpoint, function(err, response, body){
 		body = JSON.parse(body);
 
-		var city = body.results[3].formatted_address;
+		console.log(body);
 
-		console.log(city);
+		for (i = 0; i < (body.predictions).length; i++) {
+			cityResult = {
+				name: body.predictions[i].description
+			};
 
-		return city;
-	})
-}
+			cityResults.push(cityResult);
+		}
+
+		console.log(cityResults);
+
+		res.send({cityResults});
+	});
+
+});
 
 apiRoutes.get('/weather', function(req, res, next) {
 	//TODO grab lat and lon values from request parameters
@@ -79,7 +94,7 @@ apiRoutes.get('/weather', function(req, res, next) {
 	//if multi has a value, convert it to a boolean value
 	multi ? multi = multi.toLowerCase() == 'true': '';
 
-	var lat = req.query.lat || '46.117237';
+	let lat = req.query.lat || '46.117237';
 
 	let lon = req.query.lon || '-96.628691';
 

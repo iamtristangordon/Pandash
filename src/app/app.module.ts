@@ -12,12 +12,14 @@ import { WeatherComponent } from './weather.component';
 import { AppRoutingModule } from './app-routing.module';
 
 import 'hammerjs';
+import { CitiesSearchComponent } from './cities-search.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
-    WeatherComponent
+    WeatherComponent,
+    CitiesSearchComponent
   ],
   imports: [
     BrowserModule,
@@ -26,7 +28,7 @@ import 'hammerjs';
     MaterialModule,
     AppRoutingModule
   ],
-  providers: [ WeatherService ],
+  providers: [WeatherService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -17,9 +17,7 @@
         <a md-raised-button routerLink="/" color="primary"><md-icon>keyboard_arrow_left</md-icon>Back</a>
     </div>
     <div>
-      <md-input-container class="example-full-width">
-        <input mdInput placeholder="Enter Your City">
-      </md-input-container>
+      <app-cities-search></app-cities-search>
     </div>
     <div class="card-container">
       <div *ngFor="let weatherReport of weatherArray" class="weather-card">

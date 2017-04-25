@@ -1,0 +1,10 @@
+<div class="weather-search">
+    <md-input-container class="example-full-width">
+        <input #citySearchbox (keyup)="search(citySearchbox.value)" mdInput placeholder="Enter Your City">
+    </md-input-container>
+    <div class="results">
+        <div *ngFor="let city of cities | async">
+            {{city.name}}
+        </div>
+    </div>
+</div>
