@@ -5,12 +5,12 @@ import { HttpModule }     from '@angular/http';
 import { MaterialModule } from '@angular/material';
 
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard.component';
-import { WeatherComponent } from './weather.component';
-import { CitiesSearchComponent } from './cities-search.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { WeatherComponent } from './weather/weather.component';
+import { CitiesSearchComponent } from './cities-search/cities-search.component';
 
-import { WeatherService} from './weather.service';
-import { CitySelectService } from './city-select.service';
+import { WeatherService} from './_services/weather.service';
+import { CitySelectService } from './_services/city-select.service';
 
 import { AppRoutingModule } from './app-routing.module';
 

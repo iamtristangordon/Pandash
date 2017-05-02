@@ -3,7 +3,7 @@ import { Http, Response, Headers, RequestOptions } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Weather } from './weather';
+import { Weather } from '../_models/weather';
 
 @Injectable() 
 export class WeatherService {
