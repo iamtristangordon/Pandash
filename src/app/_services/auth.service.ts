@@ -4,14 +4,21 @@ import { Http } from '@angular/http';
 
 @Injectable()
 export class AuthService {
+    private authUrl = '/api/authenticate';
 
-  constructor() { }
+    constructor(private http: Http) { }
 
-  login(credentials) {
+    login(username: string, password: string) {
+        return this.http.post(this.authUrl, {username: username, password: password})  
+            .map((response) => {
+              let user = response.json();
+              if (user && user.token) {
+                localStorage.setItem('user', JSON.stringify(user));
+              }
+            });
+    }
 
-  }
-
-  logout(credentials) {
-
-  }
+    logout(credentials) {
+        localStorage.removeItem('user');
+    }
 }
