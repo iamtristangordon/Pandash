@@ -4,4 +4,9 @@ export class User {
     lName: string;
     password: string;
     username: string;
+    weatherSettings: {
+        lat: string;
+        lon: string;
+        units: string;
+    }
 }
