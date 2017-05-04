@@ -20,12 +20,10 @@ export class DashboardComponent implements OnInit {
   			lon: '-86.784439',
   			units: 'imperial'
 		},
-		info: {
-			name: 'Tristan',
-		}
+		lName: 'Tristan',
   	};
 
-	greeting = "Hello, " + this.user.info.name + ".";
+	greeting = "Hello, " + this.user.lName + ".";
 
 	constructor(private weatherService: WeatherService) { }
 

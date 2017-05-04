@@ -15,13 +15,15 @@ import { CitySelectService } from './_services/city-select.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import 'hammerjs';
+import { AlertComponent } from './alert/alert/alert.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DashboardComponent,
     WeatherComponent,
-    CitiesSearchComponent
+    CitiesSearchComponent,
+    AlertComponent
   ],
   imports: [
     BrowserModule,

@@ -4,6 +4,7 @@ export class User {
     lName: string;
     password: string;
     username: string;
+    isAdmin: boolean;
     weatherSettings: {
         lat: string;
         lon: string;
