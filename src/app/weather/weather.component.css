@@ -23,6 +23,10 @@
     height: 100%;
 }
 
+.row {
+    box-sizing: content-box !important;
+}
+
 .report {
 	text-align: center;
     height: 100%;
@@ -53,9 +57,7 @@ img {
 }
 
 .weather-card {
-    width: 23%;
     margin: 0 1%;
-    float:left;
 }
 
 card-container {

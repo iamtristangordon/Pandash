@@ -9,8 +9,8 @@
 </div>
 <section class="dash">
 	<div class="row">
-		<md-grid-list cols="12" rowHeight="8:6" gutterSize="20px">
-			<md-grid-tile colspan="3" rowspan="5">
+		<div class="dash-container" fxLayout="row" fxLayoutWrap="wrap">
+			<div class="dash-card" [fxFlex]="(25 - 2)" [fxFlex.md]="(100 / 3) - 2" [fxFlex.sm]="(100 / 2) - 2" fxFlex.lt-sm="100%">
 				<div class="dash-column weather">
 					<div class="text">
 						<div class="text_cell">
@@ -25,19 +25,19 @@
 						</div>
 					</div>
 				</div>
-			</md-grid-tile>
-			<md-grid-tile colspan="6" rowspan="5">
+			</div>
+			<div class="dash-card" [fxFlex]="(50 - 2)" [fxFlex.md]="(100 / 3) - 2" [fxFlex.sm]="(100 / 2) - 2" fxFlex.lt-sm="100%">
 				<h1>Todo</h1>
-			</md-grid-tile>
-			<md-grid-tile colspan="3" rowspan="5">
+			</div>
+			<div class="dash-card" [fxFlex]="(25 - 2)" [fxFlex.md]="(100 / 3) - 2" [fxFlex.sm]="(100 / 2) - 2" fxFlex.lt-sm="100%">
 				<h1>Task Tracker</h1>
-			</md-grid-tile>
-			<md-grid-tile colspan="6" rowspan="5">
+			</div>
+			<div class="dash-card" [fxFlex]="(50 - 2)" fxFlex.lt-sm="100%">
 				<h1>Calendar</h1>
-			</md-grid-tile>
-			<md-grid-tile colspan="6" rowspan="5">
+			</div>
+			<div class="dash-card" [fxFlex]="(50 - 2)" fxFlex.lt-sm="100%">
 				<h1>Quick Links</h1>
-			</md-grid-tile>
-		</md-grid-list>
+			</div>
+		</div>
 	</div>
 </section>

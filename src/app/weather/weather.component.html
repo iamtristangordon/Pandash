@@ -19,8 +19,8 @@
     <div>
       <app-cities-search></app-cities-search>
     </div>
-    <div class="card-container">
-      <div *ngFor="let weatherReport of weatherArray" class="weather-card">
+    <div class="card-container" fxLayout="row" fxLayoutWrap="wrap">
+      <div fxFlex="23%" [fxFlex.md]="(100 / 3) - 2" [fxFlex.sm]="(100 / 2) - 2" fxFlex.lt-sm="100%" *ngFor="let weatherReport of weatherArray" class="weather-card">
         <div style="background: rgba(120,120,120, .5); border-radius: 5px; text-align: center; margin: 27px 0; padding: 27px 0" *ngIf="weatherReport">
           <img src="src/img/{{weatherReport?.icon}}.svg"/>
           <p>{{weatherReport?.description}}</p>
