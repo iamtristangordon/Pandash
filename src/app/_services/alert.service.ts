@@ -4,7 +4,8 @@ import { Subject } from 'rxjs/Subject';
 
 @Injectable()
 //the purpose of this service is to offer an alert component
-//that is accesible by all components
+//that is accesible by all components, in order to display an alert
+//to the user
 
 export class AlertService {
     private alert = new Subject<any>();

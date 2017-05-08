@@ -12,6 +12,7 @@ import { CitiesSearchComponent } from './cities-search/cities-search.component';
 
 import { WeatherService} from './_services/weather.service';
 import { CitySelectService } from './_services/city-select.service';
+import { AlertService } from './_services/alert.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -36,7 +37,8 @@ import { AlertComponent } from './alert/alert.component';
   ],
   providers: [
     WeatherService,
-    CitySelectService
+    CitySelectService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

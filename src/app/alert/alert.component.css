@@ -1,0 +1,13 @@
+div {
+    background: rgba(200, 0, 0, .9);
+    border-radius: 6px;
+    height: 60px;
+    width: 70%;
+    margin: 0 auto;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 20px;
+    text-align: center;
+    border: 2px solid rgb(200, 200, 200);
+}
