@@ -43,3 +43,6 @@ Thumbs.db
 
 #logs
 /src/log
+
+#config
+/src/server/config.json

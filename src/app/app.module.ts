@@ -15,7 +15,7 @@ import { CitySelectService } from './_services/city-select.service';
 import { AppRoutingModule } from './app-routing.module';
 
 import 'hammerjs';
-import { AlertComponent } from './alert/alert/alert.component';
+import { AlertComponent } from './alert/alert.component';
 
 @NgModule({
   declarations: [

@@ -13,7 +13,8 @@ export class DashboardComponent implements OnInit {
   	weather: Weather;
 
   	weatherError;
-
+	  
+	//TODO define mongoose user schema, implement mongodb
   	user = {
 		weatherSettings: {
   			lat: '36.16589',
