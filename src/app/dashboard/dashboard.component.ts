@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Weather } 		  from './weather';
-import { WeatherService } from './weather.service';
-import { CitySelectService } from './city-select.service';
+import { Weather } 		  from '../_models/weather';
+import { WeatherService } from '../_services/weather.service';
+import { CitySelectService } from '../_services/city-select.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -13,19 +13,18 @@ export class DashboardComponent implements OnInit {
   	weather: Weather;
 
   	weatherError;
-
+	  
+	//TODO define mongoose user schema, implement mongodb
   	user = {
 		weatherSettings: {
   			lat: '36.16589',
   			lon: '-86.784439',
   			units: 'imperial'
 		},
-		info: {
-			name: 'Tristan',
-		}
+		lName: 'Tristan',
   	};
 
-	greeting = "Hello, " + this.user.info.name + ".";
+	greeting = "Hello, " + this.user.lName + ".";
 
 	constructor(private weatherService: WeatherService) { }
 

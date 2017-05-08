@@ -1,10 +1,10 @@
 import { Component, OnInit }   from '@angular/core';
  
-import { City }                from './city';
-import { CitiesSearchService } from './cities-search.service';
-import { Weather }             from './weather';
-import { WeatherService }      from './weather.service';
-import { CitySelectService }   from './city-select.service';
+import { City }                from '../_models/city';
+import { CitiesSearchService } from '../_services/cities-search.service';
+import { Weather }             from '../_models/weather';
+import { WeatherService }      from '../_services/weather.service';
+import { CitySelectService }   from '../_services/city-select.service';
 
 import { Observable }        from 'rxjs/Observable';
 import { Subject }           from 'rxjs/Subject';

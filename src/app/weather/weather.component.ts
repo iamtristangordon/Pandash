@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 
-import { Weather }        from './weather';
-import { WeatherService } from './weather.service';
+import { Weather }        from '../_models/weather';
+import { WeatherService } from '../_services/weather.service';
 
-import { CitySelectService } from './city-select.service';
+import { CitySelectService } from '../_services/city-select.service';
 
 import { Subscription } from 'rxjs/Subscription';
 

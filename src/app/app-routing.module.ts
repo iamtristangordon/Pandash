@@ -1,8 +1,8 @@
 import { NgModule }             from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { DashboardComponent } from './dashboard.component';
-import { WeatherComponent } from './weather.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { WeatherComponent } from './weather/weather.component';
 
 const routes: Routes = [
     { path: '', redirectTo: '/dashboard', pathMatch: 'full' },
