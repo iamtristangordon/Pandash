@@ -4,6 +4,7 @@ import { FormsModule }      from '@angular/forms';
 import { HttpModule }       from '@angular/http';
 import { MaterialModule }   from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -33,7 +34,8 @@ import { AlertComponent } from './alert/alert.component';
     HttpModule,
     MaterialModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [
     WeatherService,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
+import { trigger, state, animate, transition, style } from '@angular/animations';
+
 import { AlertService } from '../_services/alert.service';
 
 import { Subscription } from 'rxjs/Subscription';
@@ -7,15 +9,22 @@ import { Subscription } from 'rxjs/Subscription';
 @Component({
   selector: 'app-alert',
   templateUrl: './alert.component.html',
-  styleUrls: ['./alert.component.css']
+  styleUrls: ['./alert.component.css'],
+  animations: [
+    trigger('toggleState', [
+      state('inactive', style({top: '-90px' })),
+      state('active', style({top: '20px'})),
+      transition('inactive => active', animate('400ms')),
+      transition('active => inactive', animate('200ms')),
+    ])
+  ],
 })
 export class AlertComponent implements OnInit {
-
   subscription: Subscription;
 
   alertText: string;
 
-  showAlert = false;
+  toggleAlert = 'inactive';
 
   constructor(private alertService: AlertService) { }
 
@@ -30,10 +39,10 @@ export class AlertComponent implements OnInit {
   alert(text) {
     this.alertText = text;
 
-    this.showAlert = true;
+    this.toggleAlert = 'active';
 
     setTimeout(() => {
-      this.showAlert = false;
+      this.toggleAlert = 'inactive';
       this.alertText = '';
     }, 3000);
   }
