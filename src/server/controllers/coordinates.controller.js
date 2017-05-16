@@ -14,10 +14,12 @@ function coordinates (req, res, next) {
 
 	let	coordinatesEndpoint = 'https://maps.googleapis.com/maps/api/geocode/json?address=' + city + '&key=' + googleApiKey;
 
-	let cityResults = [];
+	let citiesResults = [];
 
 	citiesService.getData(coordinatesEndpoint)
         .then(function (body) {
+            body = JSON.parse(body);
+
             let coordinates = {
 			    lat: body.results[0].geometry.location.lat,
 			    lon: body.results[0].geometry.location.lng

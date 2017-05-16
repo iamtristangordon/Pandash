@@ -26,6 +26,8 @@ export class AlertComponent implements OnInit {
 
   toggleAlert = 'inactive';
 
+  showAlert = true;
+
   constructor(private alertService: AlertService) { }
 
   ngOnInit() {
@@ -37,9 +39,14 @@ export class AlertComponent implements OnInit {
   }
 
   alert(text) {
+    this.showAlert = true;
     this.alertText = text;
-
-    this.toggleAlert = 'active';
+    
+    //delay animation in case showAlert was previously set to false
+    //otherwise the initial animation isn't shown
+    setTimeout(() => {
+      this.toggleAlert = 'active';
+    }, 500);
 
     setTimeout(() => {
       this.toggleAlert = 'inactive';

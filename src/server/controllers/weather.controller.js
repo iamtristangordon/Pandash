@@ -78,23 +78,27 @@ function weather (req, res, next) {
 	if (multi === true) {
         weatherService.getData(endpointMulti)
             .then(function (body) {
-                weatherReports = [];
+				body = JSON.parse(body);
 
-                for (i = 0; i < (body.list).length; i++) {
-                    let weatherReport = {
+				weatherResp = body.list;
+
+				weatherReports = [];
+
+				weatherResp.forEach(function(item){
+					let weatherReport = {
                         temp: {
-                            min: Math.round(body.list[i].temp.min),
-                            max: Math.round(body.list[i].temp.max),
+                            min: Math.round(item.temp.min),
+                            max: Math.round(item.temp.max),
                             now: 0,
                         },
-                        description: body.list[i].weather[0].description,
-                        icon: body.list[i].weather[0].icon,
-                        date: getFormattedDate(body.list[i], true),
+                        description: item.weather[0].description,
+                        icon: item.weather[0].icon,
+                        date: getFormattedDate(item, true),
                         location: body.city.name,
                     };
 
-                    weatherReports.push(weatherReport);
-                }
+					weatherReports.push(weatherReport);
+				});
 
                 weatherReports.shift();
 
@@ -110,7 +114,7 @@ function weather (req, res, next) {
 	else {
         weatherService.getData(endpoint)
 			.then(function (body) {
-                console.log(body);
+				body = JSON.parse(body);
 
                 let weatherReport = {
 					temp: {
@@ -134,34 +138,4 @@ function weather (req, res, next) {
 			});
 	}
   
-}
-
-function cities (req, res, next) {
-    let input = req.query.input || 'Nashville'; 
-
-	let googleApiKey = config.googleApiKey;
-
-	let	citiesEndpoint = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+ input + '&types=(cities)&key=' + googleApiKey;
-
-	let cityResults = [];
-
-	weatherService.getData(citiesEndpoint)
-        .then(function (body) {
-            console.log(body);
-            for (i = 0; i < (body.predictions).length; i++) {
-                cityResult = {
-                    name: body.predictions[i].description
-                };
-
-                cityResults.push(cityResult);
-            }
-
-            console.log(cityResults);
-
-            res.send({cityResults});
-        })
-        .catch(function (err) {
-            next(new Error(err));
-        });
-
 }

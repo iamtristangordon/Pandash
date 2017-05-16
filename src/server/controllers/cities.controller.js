@@ -14,24 +14,29 @@ function cities (req, res, next) {
 
 	let	citiesEndpoint = 'https://maps.googleapis.com/maps/api/place/autocomplete/json?input='+ input + '&types=(cities)&key=' + googleApiKey;
 
-	let cityResults = [];
-
 	citiesService.getData(citiesEndpoint)
         .then(function (body) {
-            console.log(body);
-            for (i = 0; i < (body.predictions).length; i++) {
+            body = JSON.parse(body);
+
+            citiesResults = [];
+
+            citiesResp = body.predictions;
+
+            citiesResp.forEach(function(item){
                 cityResult = {
-                    name: body.predictions[i].description
+                    name: item.description
                 };
 
-                cityResults.push(cityResult);
-            }
+                citiesResults.push(cityResult);
+            })
 
-            console.log(cityResults);
+            console.log(citiesResults);
 
-            res.send({cityResults});
+            res.send({citiesResults});
         })
         .catch(function (err) {
+            console.log(err);
+
             next(new Error(err));
         });
 }

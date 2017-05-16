@@ -11,6 +11,7 @@ export class AlertService {
     private alert = new Subject<any>();
 
     //subject above as an observable, hides source identity i.e. no .next()
+    //only this service should have access to observer methods
     notification = this.alert.asObservable();
 
     constructor() {}

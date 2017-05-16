@@ -25,6 +25,7 @@ p {
     width: 26px;
     border-radius: 20px;
     cursor: pointer;
+    border: solid white 1px;
 }
 
 .close md-icon {
