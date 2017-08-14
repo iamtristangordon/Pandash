@@ -58,7 +58,7 @@ app.use(morgan(':err :method :url :response-time :date[clf]', {stream: accessLog
  
 // frontpage request
 app.get('/', function(req, res) {
-  res.sendfile(path.join(__dirname, 'index.html'));
+  res.sendfile(path.join(__dirname, '../index.html'));
 });
 
 app.use('/api', weatherRoute);
