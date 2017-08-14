@@ -4,6 +4,7 @@ import { FormsModule }      from '@angular/forms';
 import { HttpModule }       from '@angular/http';
 import { MaterialModule }   from '@angular/material';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppComponent } from './app.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
@@ -12,6 +13,7 @@ import { CitiesSearchComponent } from './cities-search/cities-search.component';
 
 import { WeatherService} from './_services/weather.service';
 import { CitySelectService } from './_services/city-select.service';
+import { AlertService } from './_services/alert.service';
 
 import { AppRoutingModule } from './app-routing.module';
 
@@ -32,11 +34,13 @@ import { AlertComponent } from './alert/alert.component';
     HttpModule,
     MaterialModule,
     AppRoutingModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    BrowserAnimationsModule
   ],
   providers: [
     WeatherService,
-    CitySelectService
+    CitySelectService,
+    AlertService
   ],
   bootstrap: [AppComponent]
 })

@@ -11,7 +11,7 @@ function getData (endpoint) {
     let def = Q.defer();
 
     request(endpoint, function(err, response, body){
-        def.resolve(JSON.parse(body));
+        def.resolve(body);
     });
 
     return def.promise;

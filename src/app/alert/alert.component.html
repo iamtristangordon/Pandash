@@ -1,3 +1,4 @@
-<p>
-  alert works!
-</p>
+<div *ngIf="showAlert" class="alert" [@toggleState]="toggleAlert">
+  <div class="close" (click)="showAlert = false;"><md-icon>close</md-icon></div>
+  <p>{{alertText}}</p>
+</div>

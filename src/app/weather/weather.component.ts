@@ -33,6 +33,7 @@ export class WeatherComponent implements OnInit {
 			name: 'Tristan',
 		}
   };
+  
   constructor(
     private weatherService: WeatherService,
     private citySelectService: CitySelectService) { }

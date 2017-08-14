@@ -15,7 +15,7 @@ export class CitiesSearchService {
     searchCities(input: string): Observable<City[]> {
         const url = `${this.citiesUrl}?input=${input}`;
         return this.http.get(url)
-                   .map(response => response.json().cityResults as City[]);
+                   .map(response => response.json().citiesResults as City[]);
     }
 
     logWeather(res): City[] {
